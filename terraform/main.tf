@@ -78,3 +78,18 @@ module "database" {
   private_subnet_ids    = module.networking.private_subnet_ids
   eks_security_group_id = module.eks.cluster_security_group_id
 }
+
+# ------------------------------------------------------------------
+# CDN: ALB and unified CloudFront distribution
+# ------------------------------------------------------------------
+module "cdn" {
+  source = "./modules/cdn"
+
+  vpc_id                      = module.networking.vpc_id
+  public_subnet_ids           = module.networking.public_subnet_ids
+  eks_security_group_id       = module.eks.cluster_security_group_id
+  node_asg_name               = module.eks.node_asg_name
+  bucket_regional_domain_name = module.storage.bucket_regional_domain_name
+  bucket_arn                  = module.storage.bucket_arn
+  bucket_id                   = module.storage.bucket_name
+}

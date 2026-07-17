@@ -29,3 +29,18 @@ variable "health_check_path" {
   type        = string
   default     = "/health"
 }
+
+variable "bucket_regional_domain_name" {
+  description = "Regional domain name of the frontend S3 bucket"
+  type        = string
+}
+
+variable "bucket_arn" {
+  description = "ARN of the frontend S3 bucket, used in the OAC bucket policy"
+  type        = string
+}
+
+variable "bucket_id" {
+  description = "ID (name) of the frontend S3 bucket"
+  type        = string
+}
