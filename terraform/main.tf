@@ -43,3 +43,15 @@ module "networking" {
   private_subnet_cidrs = var.private_subnet_cidrs
   cluster_name         = var.cluster_name
 }
+
+# ------------------------------------------------------------------
+# EKS: cluster and managed node group
+# ------------------------------------------------------------------
+module "eks" {
+  source = "./modules/eks"
+
+  cluster_name       = var.cluster_name
+  private_subnet_ids = module.networking.private_subnet_ids
+  node_instance_type = var.node_instance_type
+  node_desired_size  = var.node_desired_size
+}
