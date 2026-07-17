@@ -55,3 +55,13 @@ module "eks" {
   node_instance_type = var.node_instance_type
   node_desired_size  = var.node_desired_size
 }
+
+# ------------------------------------------------------------------
+# Storage: S3 static site bucket and ECR repository
+# ------------------------------------------------------------------
+module "storage" {
+  source = "./modules/storage"
+
+  bucket_name   = "starttech-frontend-bucket-joshfadero"
+  ecr_repo_name = "starttech-backend-api"
+}
