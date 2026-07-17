@@ -65,3 +65,16 @@ module "storage" {
   bucket_name   = "starttech-frontend-bucket-joshfadero"
   ecr_repo_name = "starttech-backend-api"
 }
+
+# ------------------------------------------------------------------
+# Database: ElastiCache Redis for session caching
+# ------------------------------------------------------------------
+module "database" {
+  source = "./modules/database"
+
+  redis_cluster_id      = "starttech-redis"
+  redis_node_type       = var.redis_node_type
+  vpc_id                = module.networking.vpc_id
+  private_subnet_ids    = module.networking.private_subnet_ids
+  eks_security_group_id = module.eks.cluster_security_group_id
+}
