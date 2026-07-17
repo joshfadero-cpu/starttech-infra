@@ -30,3 +30,16 @@ provider "aws" {
     }
   }
 }
+
+# ------------------------------------------------------------------
+# Networking: VPC, subnets, IGW, NAT, route tables
+# ------------------------------------------------------------------
+module "networking" {
+  source = "./modules/networking"
+
+  vpc_name             = "starttech-vpc"
+  vpc_cidr             = var.vpc_cidr
+  public_subnet_cidrs  = var.public_subnet_cidrs
+  private_subnet_cidrs = var.private_subnet_cidrs
+  cluster_name         = var.cluster_name
+}
