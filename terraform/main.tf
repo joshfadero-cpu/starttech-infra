@@ -93,3 +93,5 @@ module "cdn" {
   bucket_arn                  = module.storage.bucket_arn
   bucket_id                   = module.storage.bucket_name
 }
+
+# Infrastructure managed via GitHub Actions CI
