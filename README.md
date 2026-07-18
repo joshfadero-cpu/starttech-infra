@@ -68,3 +68,5 @@ cd terraform && terraform destroy
 - Redis is reachable exclusively from the EKS cluster security group on 6379
 - Worker nodes have no public IPs; the ALB accepts 80 from anywhere as the CloudFront origin path (restricting to the AWS-managed CloudFront prefix list is a known hardening)
 - Grading is performed by the read-only IAM user `start-tech-grader` with an inline least-privilege policy
+
+Submitted for Tinyuka 2025 Month 2 Assessment.
